@@ -1,0 +1,184 @@
+@url = http://localhost:4000
+	
+### BASE ROUTE
+GET {{url}}
+
+### GET USERS
+GET {{url}}/users
+
+### VALID USER
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### FIRST NAME MISSING 
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "",
+	"lastName": "Rankor",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### FIRST NAME BAD LENGTH
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Ho",
+	"lastName": "Rankor",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### FIRST NAME NOT CHARACTERS ONLY
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Ho73737",
+	"lastName": "Rankor",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### LAST NAME MISSING 
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### LAST NAME BAD LENGTH
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "R",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### LAST NAME NOT CHARACTERS ONLY
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor234",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### AGE REQUIRED
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### AGE NOT NUMBERS
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"age": "twenty-five",
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### AGE OUT OF RANGE 
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"age": 100,
+	"email": "hr@example.com",
+	"userName": "hrankor"
+}
+
+### EMAIL REQUIRED
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"age": 44,
+	"userName": "hrankor"
+}
+
+### EMAIL BAD FORMAT 
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"email": "nnn[at]company.com",
+	"age": 44,
+	"userName": "hrankor"
+}
+
+### USERNAME REQUIRED
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"age": 67,
+	"email": "hr@example.com"
+}
+
+### USERNAME BAD CHARACTERS
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "h/rankor"
+}
+
+### USERNAME BAD LENGTH
+POST {{url}}/users
+content-type: application/json
+
+{
+	"firstName": "Horace",
+	"lastName": "Rankor",
+	"age": 67,
+	"email": "hr@example.com",
+	"userName": "hsidfsd8f7s878s7dfs9w8erw8er7e8r7e8r9erankor"
+}
